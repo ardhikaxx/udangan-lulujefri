@@ -141,13 +141,13 @@ export default function Home() {
               {galleryImages.map((src, i) => (
                 <div key={i} className="aspect-4/5lass p-2 rounded-4xl border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2">
                   <div className="relative w-full h-full overflow-hidden rounded-2xl">
-                    <Image
-                      src={src}
-                      alt={`Gallery ${i + 1}`}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <Image 
+                     src={src}
+                     alt={`Gallery ${i + 1}`}
+                     fill
+                     unoptimized
+                     className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    />                    <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </div>
               ))}
