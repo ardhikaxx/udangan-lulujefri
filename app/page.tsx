@@ -87,7 +87,7 @@ export default function Home() {
               <div className="animate-float">
                 <Image
                   src="/assets/nama-cover.png"
-                  alt="The Wedding of Lukmanul & Fais"
+                  alt="The Wedding of Lulu & Jefri"
                   width={500}
                   height={500}
                   className="w-full h-auto drop-shadow-wedding"
@@ -145,7 +145,7 @@ export default function Home() {
                   <p className="font-bold text-xl tracking-widest text-amber-200 font-serif italic">Hari & Tanggal</p>
                   <p className="text-lg sm:text-xl">Jum&apos;at, 05 Juni 2026</p>
                   <a
-                    href="https://www.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Lukmanul+%26+Fais&dates=20260605/20260606&location=Dsn.+Asemkandang,+Buduan,+Suboh,+Situbondo"
+                    href="https://www.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Lulu+%26+Jefri&dates=20260605/20260606&location=Dsn.+Asemkandang,+Buduan,+Suboh,+Situbondo"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block mt-3 px-6 py-2 border border-amber-200/50 rounded-full text-sm text-amber-200 hover:bg-amber-200/10 transition-colors"
@@ -240,7 +240,7 @@ export default function Home() {
           onClick={handleEnter}
         >
           <div className="text-center text-amber-200">
-            <p className="text-3xl font-serif italic mb-6">The Wedding of Lukmanul & Fais</p>
+            <p className="text-3xl font-serif italic mb-6">The Wedding of Lulu & Jefri</p>
             <p className="text-xl">Klik di mana saja untuk Masuk</p>
           </div>
         </div>
