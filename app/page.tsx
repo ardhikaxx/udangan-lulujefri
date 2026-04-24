@@ -41,7 +41,7 @@ export default function LandingPage() {
         </div>
         <button 
           onClick={handleOpen}
-          className="flex items-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-md text-amber-200 border border-amber-200/50 rounded-full font-semibold font-serif hover:bg-white/20 transition-all shadow-lg"
+          className="flex items-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-md text-[#f6c824] border text-[#f6c824]/50 rounded-full font-semibold font-serif hover:bg-white/20 transition-all shadow-lg"
         >
           <FontAwesomeIcon icon={faEnvelopeOpenText} />
           Buka Undangan
