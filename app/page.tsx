@@ -77,8 +77,8 @@ export default function Home() {
       case "bride":
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 animate-in slide-in-from-bottom-20 duration-1000">
-            <h2 className="mb-12 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic">Pasangan Pengantin</h2>
-              <div className="glass p-8 sm:p-12 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
+            <h2 className="mb-6 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic">Pasangan Pengantin</h2>
+              <div className="glass p-4 sm:p-8 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
                 <div className="flex justify-center gap-8 mb-4">
                   <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
                     <Image src="/assets/lulu.jpeg" alt="Lukmanul Khotimah" fill className="object-cover" />
