@@ -64,7 +64,7 @@ export default function Home() {
             </div>
             
             {/* Vector dengan Animasi Masuk Terlambat */}
-            <div className="relative w-full max-w-[240px] -mt-22 sm:-mt-24 fade-up-enter [animation-delay:300ms]">
+            <div className="relative w-full max-w-[240px] -mt-20 sm:-mt-22 fade-up-enter [animation-delay:300ms]">
               <div className="animate-float-delayed">
                 <Image
                   src="/assets/vector.png"
