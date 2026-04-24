@@ -48,9 +48,8 @@ export default function Home() {
     switch (activeTab) {
       case "home":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-4 pb-36 overflow-hidden">
-            {/* Nama Cover dengan Animasi Masuk */}
-            <div className="relative w-full max-w-[450px] fade-up-enter -mt-15 sm:-mt-16">
+          <section className="flex flex-col items-center justify-center min-h-screen px-4">
+            <div className="relative w-full max-w-[450px] fade-up-enter">
               <div className="animate-float">
                 <Image
                   src="/assets/nama-cover.png"
@@ -62,8 +61,6 @@ export default function Home() {
                 />
               </div>
             </div>
-            
-            {/* Vector dengan Animasi Masuk Terlambat */}
             <div className="relative w-full max-w-[240px] -mt-20 sm:-mt-22 fade-up-enter [animation-delay:300ms]">
               <div className="animate-float-delayed">
                 <Image
@@ -75,8 +72,6 @@ export default function Home() {
                 />
               </div>
             </div>
-            
-            {/* Tanggal & Teks dengan Animasi Masuk Terlambat */}
             <div className="-mt-15 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
               <p className="text-lg sm:text-xl font-serif text-amber-200 tracking-wide drop-shadow-md">
                 Jum&apos;at, 05 Juni 2026
