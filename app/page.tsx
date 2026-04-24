@@ -29,7 +29,18 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasEntered, setHasEntered] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [scrollY, setScrollY] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Track scroll position for parallax
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const weddingDate = new Date('2026-06-05T08:00:00');
@@ -226,20 +237,25 @@ export default function Home() {
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-6 pb-32 pt-12 animate-in fade-in duration-1000">
             <h2 className="mb-10 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Gallery Foto</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 w-full max-w-3xl">
-              {galleryImages.map((src, i) => (
-                <div key={i} onClick={() => setSelectedImage(src)} className="cursor-pointer aspect-[4/5] glass p-2 rounded-[32px] border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2">
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl">
-                    <Image
-                      src={src}
-                      alt={`Gallery ${i + 1}`}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                </div>
-              ))}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 w-full max-w-3xl">
+                  {galleryImages.map((src, i) => {
+                    // Parallax effect: even items move up, odd items move down at different speeds
+                    const speed = i % 2 === 0 ? 0.06 : -0.04;
+                    const parallaxY = scrollY * speed;
+                    return (
+                    <div key={i} onClick={() => setSelectedImage(src)} className="cursor-pointer aspect-[4/5] glass p-2 rounded-[32px] border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2" style={{ transform: `translateY(${parallaxY}px)`, willChange: 'transform' }}>
+                      <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                        <Image
+                          src={src}
+                          alt={`Gallery ${i + 1}`}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      </div>
+                    </div>
+                    );
+                  })}
             </div>
 
             {/* Image Modal */}
