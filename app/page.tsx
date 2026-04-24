@@ -237,14 +237,17 @@ export default function Home() {
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-6 pb-32 pt-12 animate-in fade-in duration-1000">
             <h2 className="mb-10 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Gallery Foto</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 w-full max-w-3xl">
+                <div className="columns-2 sm:columns-3 gap-5 w-full max-w-3xl [column-fill:_balance]">
                   {galleryImages.map((src, i) => {
                     // Parallax effect: even items move up, odd items move down at different speeds
                     const speed = i % 2 === 0 ? 0.06 : -0.04;
                     const parallaxY = scrollY * speed;
+                    // Varying heights for masonry effect
+                    const heights = ['h-64', 'h-80', 'h-72', 'h-96', 'h-60', 'h-88'];
+                    const heightClass = heights[i % heights.length];
                     return (
-                    <div key={i} onClick={() => setSelectedImage(src)} className="cursor-pointer aspect-[4/5] glass p-2 rounded-[32px] border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2" style={{ transform: `translateY(${parallaxY}px)`, willChange: 'transform' }}>
-                      <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                    <div key={i} onClick={() => setSelectedImage(src)} className={`break-inside-avoid mb-5 cursor-pointer glass p-2 rounded-[32px] border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2`} style={{ transform: `translateY(${parallaxY}px)`, willChange: 'transform' }}>
+                      <div className={`relative w-full ${heightClass} overflow-hidden rounded-2xl`}>
                         <Image
                           src={src}
                           alt={`Gallery ${i + 1}`}
