@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore, useEffect, useRef } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -24,9 +24,34 @@ function getServerSnapshot() {
 export default function Home() {
   const [activeTab, setActiveTab] = useState("home");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   // Menggunakan useSyncExternalStore sebagai pengganti useEffect(setIsMounted)
   const isMounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (audio) {
+      audio.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        setIsPlaying(false);
+      });
+    }
+  }, []);
+
+  const togglePlay = () => {
+    const audio = audioRef.current;
+    if (audio) {
+      if (isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
   const navItems = [
     { id: "home", icon: faHome, title: "Home" },
     { id: "bride", icon: faRing, title: "Bride" },
@@ -196,6 +221,19 @@ export default function Home() {
 
   return (
     <div className="relative z-10 font-sans selection:bg-amber-200/30">
+
+      {/* Audio Element */}
+      <audio ref={audioRef} src="/assets/audio.mp3" loop />
+
+      {/* Music Control Button */}
+      {!isPlaying && (
+        <button
+          onClick={togglePlay}
+          className="fixed top-4 right-4 z-[100] bg-amber-200/20 backdrop-blur-sm text-amber-200 px-4 py-2 rounded-full text-sm border border-amber-200/30 hover:bg-amber-200/30 transition-colors cursor-pointer pointer-events-auto"
+        >
+          Putar Musik
+        </button>
+      )}
 
       {/* Konten Utama */}
       <main className="w-full">
