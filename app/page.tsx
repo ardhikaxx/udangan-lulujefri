@@ -50,7 +50,7 @@ export default function Home() {
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-4 pb-36 overflow-hidden animate-in fade-in duration-1000">
             {/* Nama Cover dengan Animasi Masuk */}
-            <div className="relative w-full max-w-112.5ade-up-enter -mt-15 sm:-mt-16">
+            <div className="relative w-full max-w-112.5 fade-up-enter -mt-15 sm:-mt-16">
               <div className="animate-float-slow">
                 <Image
                   src="/assets/nama-cover.png"
