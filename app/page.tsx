@@ -48,7 +48,7 @@ export default function Home() {
     switch (activeTab) {
       case "home":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-4">
+          <section className="flex flex-col items-center justify-center min-h-screen px-4 pb-24">
             <div className="relative w-full max-w-[450px] fade-up-enter">
               <div className="animate-float">
                 <Image
