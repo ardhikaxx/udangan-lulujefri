@@ -78,19 +78,27 @@ export default function Home() {
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 animate-in slide-in-from-bottom-20 duration-1000">
             <h2 className="mb-12 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic">Pasangan Pengantin</h2>
-            <div className="glass p-8 sm:p-12 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
-              <div className="space-y-3">
-                <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Lukmanul Khotimah, S.Tr., Ak</h3>
-                <p className="text-xs opacity-70 italic">Putri dari</p>
-                <p className="text-base sm:text-lg font-medium tracking-wide">Bpk. Hafid & Ibu Rumyati</p>
+              <div className="glass p-8 sm:p-12 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
+                <div className="flex justify-center gap-8 mb-4">
+                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
+                    <Image src="/assets/bride.jpg" alt="Lukmanul Khotimah" fill className="object-cover" />
+                  </div>
+                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
+                    <Image src="/assets/groom.jpg" alt="Moh. Fais Jefri Albukhori" fill className="object-cover" />
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Lukmanul Khotimah, S.Tr., Ak</h3>
+                  <p className="text-xs opacity-70 italic">Putri dari</p>
+                  <p className="text-base sm:text-lg font-medium tracking-wide">Bpk. Hafid & Ibu Rumyati</p>
+                </div>
+                <div className="text-3xl font-serif opacity-30 italic">dengan</div>
+                <div className="space-y-3">
+                  <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Moh. Fais Jefri Albukhori, S.Tr., Ak</h3>
+                  <p className="text-xs opacity-70 italic">Putra dari</p>
+                  <p className="text-base sm:text-lg font-medium tracking-wide">Alm. Bpk. Jaelani & Ibu Suti’ah</p>
+                </div>
               </div>
-              <div className="text-3xl font-serif opacity-30 italic">dengan</div>
-              <div className="space-y-3">
-                <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Moh. Fais Jefri Albukhori, S.Tr., Ak</h3>
-                <p className="text-xs opacity-70 italic">Putra dari</p>
-                <p className="text-base sm:text-lg font-medium tracking-wide">Alm. Bpk. Jaelani & Ibu Suti’ah</p>
-              </div>
-            </div>
           </section>
         );
       case "info":
