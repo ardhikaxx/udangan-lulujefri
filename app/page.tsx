@@ -81,10 +81,10 @@ export default function Home() {
               <div className="glass p-8 sm:p-12 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
                 <div className="flex justify-center gap-8 mb-4">
                   <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
-                    <Image src="/assets/bride.jpg" alt="Lukmanul Khotimah" fill className="object-cover" />
+                    <Image src="/assets/lulu.jpeg" alt="Lukmanul Khotimah" fill className="object-cover" />
                   </div>
                   <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
-                    <Image src="/assets/groom.jpg" alt="Moh. Fais Jefri Albukhori" fill className="object-cover" />
+                    <Image src="/assets/fais.jpeg" alt="Moh. Fais Jefri Albukhori" fill className="object-cover" />
                   </div>
                 </div>
                 <div className="space-y-3">
