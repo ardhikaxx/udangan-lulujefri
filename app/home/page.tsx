@@ -66,7 +66,7 @@ export default function Home() {
   }, []);
 
   const isMounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  
+
   const navItems = [
     { id: "home", icon: faHome, title: "Home" },
     { id: "bride", icon: faRing, title: "Bride" },
@@ -145,27 +145,28 @@ export default function Home() {
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 animate-in slide-in-from-bottom-20 duration-1000">
             <h2 className="mb-6 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic">Pasangan Pengantin</h2>
-              <div className="glass p-4 sm:p-8 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
-                <div className="flex justify-center gap-8 mb-4">
-                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
-                    <Image src="/assets/lulu.jpeg" alt="Lukmanul Khotimah" fill className="object-cover" />
-                  </div>
-                  <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
-                    <Image src="/assets/fais.jpeg" alt="Moh. Fais Jefri Albukhori" fill className="object-cover" />
-                  </div>
+            <div className="glass p-4 sm:p-8 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
+              <div className="flex justify-center gap-8 mb-4">
+                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
+                  <Image src="/assets/lulu.jpeg" alt="Lukmanul Khotimah" fill sizes="112px" className="object-cover" />
                 </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Lukmanul Khotimah, S.Tr., Ak</h3>
-                  <p className="text-xs opacity-70 italic">Putri dari</p>
-                  <p className="text-base sm:text-lg font-medium tracking-wide">Bpk. Hafid & Ibu Rumyati</p>
+                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-amber-200">
+                  <Image src="/assets/fais.jpeg" alt="Moh. Fais Jefri Albukhori" fill sizes="112px" className="object-cover" />
                 </div>
-                <div className="text-3xl font-serif opacity-30 italic">dengan</div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Moh. Fais Jefri Albukhori, S.Tr., Ak</h3>
-                  <p className="text-xs opacity-70 italic">Putra dari</p>
-                  <p className="text-base sm:text-lg font-medium tracking-wide">Alm. Bpk. Jaelani & Ibu Suti’ah</p>
-                </div>
+
               </div>
+              <div className="space-y-3">
+                <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Lukmanul Khotimah, S.Tr., Ak</h3>
+                <p className="text-xs opacity-70 italic">Putri dari</p>
+                <p className="text-base sm:text-lg font-medium tracking-wide">Bpk. Hafid & Ibu Rumyati</p>
+              </div>
+              <div className="text-3xl font-serif opacity-30 italic">dengan</div>
+              <div className="space-y-3">
+                <h3 className="text-2xl sm:text-3xl font-serif italic text-amber-200">Moh. Fais Jefri Albukhori, S.Tr., Ak</h3>
+                <p className="text-xs opacity-70 italic">Putra dari</p>
+                <p className="text-base sm:text-lg font-medium tracking-wide">Alm. Bpk. Jaelani & Ibu Suti’ah</p>
+              </div>
+            </div>
           </section>
         );
       case "info":
@@ -218,65 +219,68 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4 w-full max-w-2xl">
               {galleryImages.map((src, i) => (
                 <div 
-                  key={i} 
-                  onClick={() => setSelectedImage(src)} 
-                  className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+                key={i} 
+                onClick={() => setSelectedImage(src)} 
+                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
                 >
-                  <div className="relative w-full aspect-square overflow-hidden rounded-xl">
-                    <Image
-                      src={src}
-                      alt={`Gallery ${i + 1}`}
-                      fill
-                      className="object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                <Image
+                  src={src}
+                  alt={`Gallery ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 250px"
+                  className="object-cover hover:scale-110 transition-transform duration-500"
+                />
                 </div>
+                </div>
+
               ))}
             </div>
-{/* Image Modal */}
-<AnimatePresence>
-  {selectedImage && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
-      onClick={() => setSelectedImage(null)}
-    >
-      <motion.div
-        initial={{ scale: 0.5, rotate: -10, y: 50, opacity: 0 }}
-        animate={{ scale: 1, rotate: 0, y: 0, opacity: 1 }}
-        exit={{ scale: 0.5, rotate: 10, y: 50, opacity: 0 }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 260, 
-          damping: 20,
-          mass: 1 
-        }}
-        className="relative w-full max-w-lg aspect-[4/5]"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <Image
-          src={selectedImage}
-          alt="Full size gallery"
-          fill
-          className="object-contain rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
-        />
-        <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          whileHover={{ scale: 1.2, rotate: 90 }}
-          whileTap={{ scale: 0.9 }}
-          className="absolute -top-12 right-0 text-white/80 hover:text-white text-4xl font-light transition-colors"
-          onClick={() => setSelectedImage(null)}
-        >
-          &times;
-        </motion.button>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+            {/* Image Modal */}
+            <AnimatePresence>
+              {selectedImage && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  <motion.div
+                    initial={{ scale: 0.5, rotate: -10, y: 50, opacity: 0 }}
+                    animate={{ scale: 1, rotate: 0, y: 0, opacity: 1 }}
+                    exit={{ scale: 0.5, rotate: 10, y: 50, opacity: 0 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                      mass: 1
+                    }}
+                    className="relative w-full max-w-lg aspect-[4/5]"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Image
+                      src={selectedImage}
+                      alt="Full size gallery"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 512px"
+                      className="object-contain rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
+                    />
+                    <motion.button
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0 }}
+                      whileHover={{ scale: 1.2, rotate: 90 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute -top-12 right-0 text-white/80 hover:text-white text-4xl font-light transition-colors"
+                      onClick={() => setSelectedImage(null)}
+                    >
+                      &times;
+                    </motion.button>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
           </section>
         );

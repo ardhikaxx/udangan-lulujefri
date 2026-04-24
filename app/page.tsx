@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useAudio } from "./context/AudioContext";
@@ -27,7 +28,15 @@ export default function LandingPage() {
 
       <div className="relative z-10 flex flex-col items-center">
         <h1 className="text-3xl font-serif mb-4">CELEBRATING OUR WEDDING</h1>
-        <h2 className="text-4xl font-bold font-serif mb-8">Lulu & Jefri</h2>
+        <div className="mb-8 w-64">
+          <Image 
+            src="/assets/nama-cover.png" 
+            alt="Lulu & Jefri" 
+            width={400} 
+            height={200} 
+            className="w-full h-auto drop-shadow-md"
+          />
+        </div>
         <button 
           onClick={handleOpen}
           className="px-8 py-3 bg-white text-slate-900 rounded-full font-semibold hover:bg-slate-200 transition-colors shadow-lg"
