@@ -29,18 +29,7 @@ export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasEntered, setHasEntered] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [scrollY, setScrollY] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  // Track scroll position for parallax
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const weddingDate = new Date('2026-06-05T08:00:00');
@@ -239,14 +228,11 @@ export default function Home() {
             <h2 className="mb-10 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Gallery Foto</h2>
                 <div className="columns-2 sm:columns-3 gap-3 sm:gap-5 w-full max-w-3xl [column-fill:_balance]">
                   {galleryImages.map((src, i) => {
-                    // Parallax effect: even items move up, odd items move down at different speeds
-                    const speed = i % 2 === 0 ? 0.06 : -0.04;
-                    const parallaxY = scrollY * speed;
                     // Responsive varying heights for masonry effect
                     const heights = ['h-48 sm:h-64', 'h-56 sm:h-80', 'h-52 sm:h-72', 'h-60 sm:h-96', 'h-44 sm:h-60', 'h-56 sm:h-88'];
                     const heightClass = heights[i % heights.length];
                     return (
-                    <div key={i} onClick={() => setSelectedImage(src)} className={`break-inside-avoid mb-3 sm:mb-5 cursor-pointer glass p-2 rounded-[32px] border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2`} style={{ transform: `translateY(${parallaxY}px)`, willChange: 'transform' }}>
+                    <div key={i} onClick={() => setSelectedImage(src)} className={`break-inside-avoid mb-3 sm:mb-5 cursor-pointer glass p-2 rounded-[32px] border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2`}>
                       <div className={`relative w-full ${heightClass} overflow-hidden rounded-2xl`}>
                         <Image
                           src={src}
