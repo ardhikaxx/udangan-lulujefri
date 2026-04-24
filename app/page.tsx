@@ -40,6 +40,7 @@ export default function Home() {
     "/assets/gallery/foto3.jpeg",
     "/assets/gallery/foto4.jpeg",
     "/assets/gallery/foto5.jpeg",
+    "/assets/gallery/foto6.jpeg",
   ];
 
   if (!isMounted) return <div className="min-h-screen bg-[#002B19]" />;
