@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Lukmanul & Fais - Wedding Invitation",
+  title: "Lulu & Jefri - Wedding Invitation",
   description: "Wedding invitation of Lukmanul Khotimah & Moh. Fais Jefri Albukhori - Jum'at, 05 Juni 2026",
 };
 
