@@ -110,7 +110,7 @@ export default function Home() {
             </div>
 
             <div className="mt-2 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
-              <p className="text-lg sm:text-xl font-serif text-[#CE953A] tracking-wide drop-shadow-md">
+              <p className="text-lg sm:text-xl font-serif text-[#ce953a] tracking-wide drop-shadow-md">
                 Jum&apos;at, 05 Juni 2026
               </p>
               <div className="px-6 py-2 glass rounded-full animate-pulse border border-white/10">
@@ -119,7 +119,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="mt-4 glass px-6 py-3 rounded-[30px] border border-white/10">
-                <div className="flex gap-4 sm:gap-6 text-[#CE953A]">
+                <div className="flex gap-4 sm:gap-6 text-[#ce953a]">
                   <div className="text-center">
                     <p className="text-2xl sm:text-3xl font-serif font-bold">{countdown.days}</p>
                     <p className="text-[10px] sm:text-xs tracking-widest uppercase opacity-70">Hari</p>
@@ -147,22 +147,22 @@ export default function Home() {
             <h2 className="mb-6 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic">Pasangan Pengantin</h2>
             <div className="glass p-4 sm:p-8 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
               <div className="flex justify-center gap-8 mb-4">
-                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 text-[#CE953A]">
+                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 text-[#ce953a]">
                   <Image src="/assets/lulu.jpeg" alt="Lukmanul Khotimah" fill sizes="112px" className="object-cover" />
                 </div>
-                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 text-[#CE953A]">
+                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 text-[#ce953a]">
                   <Image src="/assets/fais.jpeg" alt="Moh. Fais Jefri Albukhori" fill sizes="112px" className="object-cover" />
                 </div>
 
               </div>
               <div className="space-y-3">
-                <h3 className="text-2xl sm:text-3xl font-serif italic text-[#CE953A]">Lukmanul Khotimah, S.Tr., Ak</h3>
+                <h3 className="text-2xl sm:text-3xl font-serif italic text-[#ce953a]">Lukmanul Khotimah, S.Tr., Ak</h3>
                 <p className="text-xs opacity-70 italic">Putri dari</p>
                 <p className="text-base sm:text-lg font-medium tracking-wide">Bpk. Hafid & Ibu Rumyati</p>
               </div>
               <div className="text-3xl font-serif opacity-30 italic">dengan</div>
               <div className="space-y-3">
-                <h3 className="text-2xl sm:text-3xl font-serif italic text-[#CE953A]">Moh. Fais Jefri Albukhori, S.Tr., Ak</h3>
+                <h3 className="text-2xl sm:text-3xl font-serif italic text-[#ce953a]">Moh. Fais Jefri Albukhori, S.Tr., Ak</h3>
                 <p className="text-xs opacity-70 italic">Putra dari</p>
                 <p className="text-base sm:text-lg font-medium tracking-wide">Alm. Bpk. Jaelani & Ibu Suti’ah</p>
               </div>
@@ -176,20 +176,20 @@ export default function Home() {
             <div className="glass p-8 sm:p-10 rounded-[50px] w-full max-w-lg space-y-8">
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <p className="font-bold text-xl tracking-widest text-[#CE953A] font-serif italic">Hari & Tanggal</p>
+                  <p className="font-bold text-xl tracking-widest text-[#ce953a] font-serif italic">Hari & Tanggal</p>
                   <p className="text-lg sm:text-xl">Jum&apos;at, 05 Juni 2026</p>
                   <a
                     href="https://www.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Lulu+%26+Jefri&dates=20260605/20260606&location=Dsn.+Asemkandang,+Buduan,+Suboh,+Situbondo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-3 px-6 py-2 bg-white border border-[#CE953A] rounded-full text-sm text-[#CE953A] hover:bg-slate-100 transition-colors"
+                    className="inline-block mt-3 px-6 py-2 bg-white border border-[#ce953a] rounded-full text-sm text-[#ce953a] hover:bg-slate-100 transition-colors"
                   >
                     Simpan Tanggal
                   </a>
                 </div>
                 <div className="w-1/3 h-px bg-white/20 mx-auto"></div>
                 <div className="space-y-1">
-                  <p className="font-bold text-xl tracking-widest text-[#CE953A] font-serif italic">Tempat</p>
+                  <p className="font-bold text-xl tracking-widest text-[#ce953a] font-serif italic">Tempat</p>
                   <p className="text-sm sm:text-base leading-relaxed">
                     Dsn. Asemkandang, Buduan, Suboh, Situbondo
                   </p>
@@ -197,7 +197,7 @@ export default function Home() {
                     href="https://maps.app.goo.gl/QtBwAwMgsUPjJoqVA"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-3 px-6 py-2 bg-white border border-[#CE953A] rounded-full text-sm text-[#CE953A] hover:bg-slate-100 transition-colors"
+                    className="inline-block mt-3 px-6 py-2 bg-white border border-[#ce953a] rounded-full text-sm text-[#ce953a] hover:bg-slate-100 transition-colors"
                   >
                     Lihat Alamat
                   </a>
@@ -290,8 +290,8 @@ export default function Home() {
   };
 
   return (
-    <div className="relative z-10 font-sans selection:text-[#CE953A]/30">
-      <button onClick={audioContext?.togglePlay} className="fixed top-4 right-4 z-[100] text-[#CE953A]/20 backdrop-blur-sm text-[#CE953A] w-10 h-10 rounded-full flex items-center justify-center border text-[#CE953A]/30">
+    <div className="relative z-10 font-sans selection:text-[#ce953a]/30">
+      <button onClick={audioContext?.togglePlay} className="fixed top-4 right-4 z-[100] text-[#ce953a]/20 backdrop-blur-sm text-[#ce953a] w-10 h-10 rounded-full flex items-center justify-center border text-[#ce953a]/30">
         <FontAwesomeIcon icon={audioContext?.isPlaying ? faPause : faPlay} />
       </button>
 
@@ -318,7 +318,7 @@ export default function Home() {
             <button
               key={item.id}
               onClick={() => handleTabChange(item.id)}
-              className={`flex flex-col items-center transition-all duration-300 cursor-pointer ${activeTab === item.id ? "scale-105 -translate-y-1.5 text-[#CE953A]" : "opacity-40 text-white hover:opacity-100"
+              className={`flex flex-col items-center transition-all duration-300 cursor-pointer ${activeTab === item.id ? "scale-105 -translate-y-1.5 text-[#ce953a]" : "opacity-40 text-white hover:opacity-100"
                 }`}
             >
               <div className="text-xl sm:text-2xl drop-shadow-md">
@@ -328,7 +328,7 @@ export default function Home() {
                 {item.title}
               </span>
               {activeTab === item.id && (
-                <div className="w-1.5 h-1.5 text-[#CE953A] rounded-full mt-1 shadow-sm animate-pulse" />
+                <div className="w-1.5 h-1.5 text-[#ce953a] rounded-full mt-1 shadow-sm animate-pulse" />
               )}
             </button>
           ))}
