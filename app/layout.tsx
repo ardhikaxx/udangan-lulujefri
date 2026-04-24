@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import PageTransition from "./components/PageTransition";
+import { AudioProvider } from "./context/AudioContext";
 
 export const metadata: Metadata = {
   title: "Lulu & Jefri - Wedding Invitation",
@@ -13,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <AudioProvider>
+          <PageTransition>{children}</PageTransition>
+        </AudioProvider>
+      </body>
     </html>
   );
 }
