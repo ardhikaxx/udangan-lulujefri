@@ -28,7 +28,31 @@ export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasEntered, setHasEntered] = useState(false);
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const weddingDate = new Date('2026-06-05T08:00:00');
+
+    const updateCountdown = () => {
+      const now = new Date();
+      const difference = weddingDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setCountdown({ days, hours, minutes, seconds });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Menggunakan useSyncExternalStore sebagai pengganti useEffect(setIsMounted)
   const isMounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
@@ -104,6 +128,26 @@ export default function Home() {
                 <p className="text-xs tracking-[0.4em] uppercase font-light text-amber-50">
                   Wedding Invitation
                 </p>
+              </div>
+              <div className="mt-4 glass px-6 py-3 rounded-[30px] border border-white/10">
+                <div className="flex gap-4 sm:gap-6 text-amber-200">
+                  <div className="text-center">
+                    <p className="text-2xl sm:text-3xl font-serif font-bold">{countdown.days}</p>
+                    <p className="text-[10px] sm:text-xs tracking-widest uppercase opacity-70">Hari</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl sm:text-3xl font-serif font-bold">{countdown.hours}</p>
+                    <p className="text-[10px] sm:text-xs tracking-widest uppercase opacity-70">Jam</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl sm:text-3xl font-serif font-bold">{countdown.minutes}</p>
+                    <p className="text-[10px] sm:text-xs tracking-widest uppercase opacity-70">Menit</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl sm:text-3xl font-serif font-bold">{countdown.seconds}</p>
+                    <p className="text-[10px] sm:text-xs tracking-widest uppercase opacity-70">Detik</p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
