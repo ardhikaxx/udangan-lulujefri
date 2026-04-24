@@ -7,7 +7,9 @@ import {
   faHome,
   faRing,
   faCalendarAlt,
-  faImages
+  faImages,
+  faPlay,
+  faPause
 } from "@fortawesome/free-solid-svg-icons";
 
 // Fungsi pembantu untuk mendeteksi client-side secara aman
@@ -25,12 +27,13 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("home");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // Menggunakan useSyncExternalStore sebagai pengganti useEffect(setIsMounted)
   const isMounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  useEffect(() => {
+  const startAudio = () => {
     const audio = audioRef.current;
     if (audio) {
       audio.play().then(() => {
@@ -39,30 +42,12 @@ export default function Home() {
         setIsPlaying(false);
       });
     }
-  }, []);
+  };
 
-  // Play audio on first user interaction
-  useEffect(() => {
-    const handleInteraction = () => {
-      const audio = audioRef.current;
-      if (audio && !isPlaying) {
-        audio.play().then(() => {
-          setIsPlaying(true);
-        }).catch(() => {});
-      }
-      // Remove listeners after first interaction
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
-    };
-
-    document.addEventListener('click', handleInteraction);
-    document.addEventListener('touchstart', handleInteraction);
-
-    return () => {
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
-    };
-  }, [isPlaying]);
+  const handleEnter = () => {
+    setHasEntered(true);
+    startAudio();
+  };
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -248,13 +233,26 @@ export default function Home() {
       {/* Audio Element */}
       <audio ref={audioRef} src="/assets/audio.mp3" loop />
 
-      {/* Music Control Button */}
-      {!isPlaying && (
+      {/* Entry Overlay */}
+      {!hasEntered && (
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm cursor-pointer"
+          onClick={handleEnter}
+        >
+          <div className="text-center text-amber-200">
+            <p className="text-3xl font-serif italic mb-6">The Wedding of Lukmanul & Fais</p>
+            <p className="text-xl">Klik di mana saja untuk Masuk</p>
+          </div>
+        </div>
+      )}
+
+      {/* Music Toggle Button - shown after entry */}
+      {hasEntered && (
         <button
           onClick={togglePlay}
-          className="fixed top-4 right-4 z-[100] bg-amber-200/20 backdrop-blur-sm text-amber-200 px-4 py-2 rounded-full text-sm border border-amber-200/30 hover:bg-amber-200/30 transition-colors cursor-pointer pointer-events-auto"
+          className="fixed top-4 right-4 z-[100] bg-amber-200/20 backdrop-blur-sm text-amber-200 w-10 h-10 rounded-full flex items-center justify-center border border-amber-200/30 hover:bg-amber-200/30 transition-colors cursor-pointer pointer-events-auto"
         >
-          Putar Musik
+          <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
         </button>
       )}
 
