@@ -49,7 +49,7 @@ export default function Home() {
       case "home":
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-4 pb-24 overflow-hidden">
-            <div className="relative w-full max-w-[450px] fade-up-enter -mt-12 sm:-mt-15">
+            <div className="relative w-full max-w-[450px] fade-up-enter -mt-12 sm:-mt-16">
               <div className="animate-float">
                 <Image
                   src="/assets/nama-cover.png"
@@ -74,7 +74,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="-mt-12 sm:-mt-15 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
+            <div className="-mt-12 sm:-mt-16 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
               <p className="text-lg sm:text-xl font-serif text-amber-200 tracking-wide drop-shadow-md">
                 Jum&apos;at, 05 Juni 2026
               </p>
@@ -183,9 +183,9 @@ export default function Home() {
               <span className={`text-[8px] sm:text-[10px] mt-1 font-bold tracking-widest uppercase transition-all duration-300 ${activeTab === item.id ? "opacity-100" : "opacity-0 h-0"}`}>
                 {item.title}
               </span>
-              {activeTab === item.id && (
-                <div className="w-1.2 h-1.2 bg-amber-200 rounded-full mt-1 shadow-sm animate-pulse" />
-              )}
+               {activeTab === item.id && (
+                 <div className="w-1.5 h-1.5 bg-amber-200 rounded-full mt-1 shadow-sm animate-pulse" />
+               )}
             </button>
           ))}
         </div>
