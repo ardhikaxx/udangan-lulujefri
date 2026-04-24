@@ -3,16 +3,16 @@
 import { useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faRing,
-  faCalendarAlt,
-  faImages
+import { 
+  faHome, 
+  faRing, 
+  faCalendarAlt, 
+  faImages 
 } from "@fortawesome/free-solid-svg-icons";
 
 // Fungsi pembantu untuk mendeteksi client-side secara aman
 function subscribe() {
-  return () => { };
+  return () => {};
 }
 function getSnapshot() {
   return true;
@@ -23,7 +23,7 @@ function getServerSnapshot() {
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("home");
-
+  
   // Menggunakan useSyncExternalStore sebagai pengganti useEffect(setIsMounted)
   const isMounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
@@ -48,10 +48,10 @@ export default function Home() {
     switch (activeTab) {
       case "home":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-4 pb-36 overflow-hidden animate-in fade-in duration-1000">
+          <section className="flex flex-col items-center justify-center min-h-screen px-4 pb-36 overflow-hidden">
             {/* Nama Cover dengan Animasi Masuk */}
-            <div className="relative w-full max-w-112.5 fade-up-enter [animation-delay:200ms]">
-              <div className="animate-float-slow">
+            <div className="relative w-full max-w-[450px] fade-up-enter -mt-10 sm:-mt-16">
+              <div className="animate-float">
                 <Image
                   src="/assets/nama-cover.png"
                   alt="The Wedding of Lukmanul & Fais"
@@ -62,9 +62,10 @@ export default function Home() {
                 />
               </div>
             </div>
-
-            <div className="relative w-full max-w-60 -mt-18 sm:-mt-20 fade-up-enter [animation-delay:300ms]">
-              <div className="animate-float-slow">
+            
+            {/* Vector dengan Animasi Masuk Terlambat */}
+            <div className="relative w-full max-w-[240px] -mt-6 fade-up-enter [animation-delay:300ms]">
+              <div className="animate-float-delayed">
                 <Image
                   src="/assets/vector.png"
                   alt="Wedding Illustration"
@@ -74,8 +75,9 @@ export default function Home() {
                 />
               </div>
             </div>
-
-            <div className="-mt-8 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
+            
+            {/* Tanggal & Teks dengan Animasi Masuk Terlambat */}
+            <div className="mt-2 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
               <p className="text-lg sm:text-xl font-serif text-amber-200 tracking-wide drop-shadow-md">
                 Jum&apos;at, 05 Juni 2026
               </p>
@@ -139,16 +141,16 @@ export default function Home() {
             <h2 className="mb-10 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Gallery Foto</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 w-full max-w-3xl">
               {galleryImages.map((src, i) => (
-                <div key={i} className="aspect-4/5lass p-2 rounded-4xl border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2">
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl">
-                    <Image 
-                     src={src}
-                     alt={`Gallery ${i + 1}`}
-                     fill
-                     unoptimized
-                     className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />                    <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
+                <div key={i} className="aspect-[4/5] glass p-2 rounded-[32px] border border-white/20 shadow-2xl group relative overflow-hidden transition-all duration-500 hover:rotate-2">
+                   <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                     <Image 
+                      src={src}
+                      alt={`Gallery ${i + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                     />
+                     <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   </div>
                 </div>
               ))}
             </div>
@@ -161,7 +163,7 @@ export default function Home() {
 
   return (
     <div className="relative z-10 font-sans selection:bg-amber-200/30">
-
+      
       {/* Konten Utama */}
       <main className="w-full">
         {renderContent()}
@@ -174,8 +176,9 @@ export default function Home() {
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`flex flex-col items-center transition-all duration-300 cursor-pointer ${activeTab === item.id ? "scale-105 -translate-y-1.5 text-amber-200" : "opacity-40 text-white hover:opacity-100"
-                }`}
+              className={`flex flex-col items-center transition-all duration-300 cursor-pointer ${
+                activeTab === item.id ? "scale-105 -translate-y-1.5 text-amber-200" : "opacity-40 text-white hover:opacity-100"
+              }`}
             >
               <div className="text-xl sm:text-2xl drop-shadow-md">
                 <FontAwesomeIcon icon={item.icon} />
