@@ -100,15 +100,23 @@ export default function Home() {
             <div className="glass p-8 sm:p-10 rounded-[50px] w-full max-w-lg space-y-8">
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <p className="font-bold text-xl uppercase tracking-widest text-amber-200 font-serif italic">Hari & Tanggal</p>
+                  <p className="font-bold text-xl tracking-widest text-amber-200 font-serif italic">Hari & Tanggal</p>
                   <p className="text-lg sm:text-xl">Jum&apos;at, 05 Juni 2026</p>
                 </div>
                 <div className="w-1/3 h-px bg-white/20 mx-auto"></div>
                 <div className="space-y-1">
-                  <p className="font-bold text-xl uppercase tracking-widest text-amber-200 font-serif italic">Tempat</p>
+                  <p className="font-bold text-xl tracking-widest text-amber-200 font-serif italic">Tempat</p>
                   <p className="text-sm sm:text-base leading-relaxed">
                     Dsn. Asemkandang, Buduan, Suboh, Situbondo
                   </p>
+                  <a
+                    href="https://maps.app.goo.gl/QtBwAwMgsUPjJoqVA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 px-6 py-2 border border-amber-200/50 rounded-full text-sm text-amber-200 hover:bg-amber-200/10 transition-colors"
+                  >
+                    Lihat Alamat
+                  </a>
                 </div>
               </div>
               <div className="pt-8 border-t border-white/10">
