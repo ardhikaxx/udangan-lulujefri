@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useAudio } from "./context/AudioContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
 
 export default function LandingPage() {
   const router = useRouter();
@@ -27,20 +29,21 @@ export default function LandingPage() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
-        <h1 className="text-3xl font-serif mb-4">CELEBRATING OUR WEDDING</h1>
-        <div className="mb-8 w-64">
+        <h1 className="text-xl font-serif mb-4 tracking-widest uppercase">Celebrating Our Wedding</h1>
+        <div className="mb-8 w-80 md:w-96">
           <Image 
             src="/assets/nama-cover.png" 
             alt="Lulu & Jefri" 
-            width={400} 
-            height={200} 
+            width={600} 
+            height={300} 
             className="w-full h-auto drop-shadow-md"
           />
         </div>
         <button 
           onClick={handleOpen}
-          className="px-8 py-3 bg-white text-slate-900 rounded-full font-semibold hover:bg-slate-200 transition-colors shadow-lg"
+          className="flex items-center gap-2 px-8 py-3 bg-white/10 backdrop-blur-md text-amber-200 border border-amber-200/50 rounded-full font-semibold font-serif hover:bg-white/20 transition-all shadow-lg"
         >
+          <FontAwesomeIcon icon={faEnvelopeOpenText} />
           Buka Undangan
         </button>
       </div>
