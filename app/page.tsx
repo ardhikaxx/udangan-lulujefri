@@ -41,6 +41,29 @@ export default function Home() {
     }
   }, []);
 
+  // Play audio on first user interaction
+  useEffect(() => {
+    const handleInteraction = () => {
+      const audio = audioRef.current;
+      if (audio && !isPlaying) {
+        audio.play().then(() => {
+          setIsPlaying(true);
+        }).catch(() => {});
+      }
+      // Remove listeners after first interaction
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+    };
+
+    document.addEventListener('click', handleInteraction);
+    document.addEventListener('touchstart', handleInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+    };
+  }, [isPlaying]);
+
   const togglePlay = () => {
     const audio = audioRef.current;
     if (audio) {
