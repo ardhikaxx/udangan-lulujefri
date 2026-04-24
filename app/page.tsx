@@ -62,7 +62,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative w-full max-w-[240px] -mt-28 sm:-mt-32 fade-up-enter [animation-delay:300ms]">
+            <div className="relative w-full max-w-[240px] -mt-20 sm:-mt-24 fade-up-enter [animation-delay:300ms]">
               <div className="animate-float-delayed">
                 <Image
                   src="/assets/vector.png"
@@ -74,7 +74,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="-mt-24 sm:-mt-32 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
+            <div className="-mt-12 sm:-mt-16 flex flex-col items-center gap-2 text-center fade-up-enter [animation-delay:600ms]">
               <p className="text-lg sm:text-xl font-serif text-amber-200 tracking-wide drop-shadow-md">
                 Jum&apos;at, 05 Juni 2026
               </p>
