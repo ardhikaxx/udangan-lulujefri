@@ -203,7 +203,7 @@ export default function Home() {
 
       {/* Floating Bottom Navigation */}
       <nav className="fixed bottom-7 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center px-4 w-full pointer-events-none">
-        <div className="nav-glass py-3 px-8 sm:px-11 rounded-full flex gap-7 sm:gap-10 items-center shadow-2xl border border-white/20 pointer-events-auto">
+        <div className="nav-glass py-3 px-8 sm:px-11 rounded-full flex gap-7 sm:gap-10 items-center shadow-2xl border border-white/20 pointer-events-auto" style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', background: 'rgba(255,255,255,0.2)' }}>
           {navItems.map((item) => (
             <button
               key={item.id}
