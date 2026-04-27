@@ -1,55 +1,55 @@
-# Wedding Invitation - Lulu & Jefri
+# Undangan Pernikahan Digital - Lulu & Jefri
 
-A beautiful, interactive, and modern digital wedding invitation built with Next.js, Tailwind CSS, and Framer Motion. This application features smooth transitions, background music, and a comprehensive set of sections for guests.
+Sebuah aplikasi undangan pernikahan digital yang indah, interaktif, dan modern yang dibangun menggunakan Next.js, Tailwind CSS, dan Framer Motion. Aplikasi ini dirancang dengan transisi yang halus, musik latar, dan berbagai fitur lengkap untuk para tamu.
 
-## ✨ Features
+## ✨ Fitur Utama
 
--   **Interactive Home Page**: Features a countdown timer and a beautiful cover design.
--   **Bride & Groom Section**: Detailed profiles of the happy couple.
--   **Our Story (Cerita Kami)**: An elegant, animated section telling the couple's journey with decorative elements.
--   **Event Info**: Date, time, and location with "Save to Calendar" and "Google Maps" integration.
--   **Photo Gallery**: A responsive grid of photos with an interactive full-screen preview.
--   **Digital Gift**: Secure and easy-to-use bank transfer details with copy-to-clipboard functionality for Mandiri, BNI, BRI, and DANA.
--   **Background Music**: Seamless audio experience using React Audio Context with manual toggle controls.
--   **Floating Bottom Navigation**: Optimized mobile-first navigation for easy access to all sections.
+-   **Halaman Beranda Interaktif**: Dilengkapi dengan penghitung waktu mundur (countdown) dan desain sampul yang menawan.
+-   **Bagian Mempelai**: Profil lengkap dari kedua mempelai.
+-   **Cerita Kami (Our Story)**: Bagian animasi yang elegan menceritakan perjalanan cinta mempelai dengan elemen dekoratif yang artistik.
+-   **Informasi Acara**: Detail tanggal, waktu, dan lokasi yang terintegrasi dengan fitur "Simpan ke Kalender" dan "Google Maps".
+-   **Galeri Foto**: Grid foto responsif dengan fitur pratinjau foto layar penuh yang interaktif.
+-   **Kado Digital (Gift)**: Informasi rekening bank dan e-wallet yang aman dengan fitur salin nomor rekening otomatis untuk Mandiri, BNI, BRI, dan DANA.
+-   **Musik Latar**: Pengalaman audio yang mulus menggunakan React Audio Context dengan kontrol putar/jeda manual.
+-   **Navigasi Bawah Melayang (Floating Nav)**: Navigasi yang dioptimalkan untuk perangkat seluler untuk akses cepat ke semua bagian undangan.
 
-## 🚀 Tech Stack
+## 🚀 Teknologi yang Digunakan
 
 -   **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
 -   **Library**: [React 19](https://react.dev/)
 -   **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
--   **Animations**: [Framer Motion](https://www.framer.com/motion/)
--   **Icons**: [FontAwesome](https://fontawesome.com/)
--   **Language**: [TypeScript](https://www.typescriptlang.org/)
+-   **Animasi**: [Framer Motion](https://www.framer.com/motion/)
+-   **Ikon**: [FontAwesome](https://fontawesome.com/)
+-   **Bahasa**: [TypeScript](https://www.typescriptlang.org/)
 
-## 🛠️ Installation & Setup
+## 🛠️ Instalasi & Persiapan
 
-1.  **Clone the repository**:
+1.  **Clone repositori**:
     ```bash
     git clone https://github.com/ardhikaxx/udangan-lulujefri.git
     cd undangan-app
     ```
 
-2.  **Install dependencies**:
+2.  **Instal dependensi**:
     ```bash
     npm install
     ```
 
-3.  **Run the development server**:
+3.  **Jalankan server pengembangan**:
     ```bash
     npm run dev
     ```
 
-4.  **Open in browser**:
-    Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+4.  **Buka di browser**:
+    Akses [http://localhost:3000](http://localhost:3000) untuk melihat aplikasi.
 
-## 📸 Assets
+## 📸 Aset
 
-All images and audio files are located in the `public/assets` directory:
--   `gallery/`: Contains wedding photos.
--   `audio.mp3`: Background music.
--   Bank and e-wallet logos for the Gift section.
+Semua aset gambar dan audio terletak di direktori `public/assets`:
+-   `gallery/`: Berisi foto-foto galeri pernikahan.
+-   `audio.mp3`: Musik latar undangan.
+-   Logo bank dan e-wallet untuk bagian Gift.
 
-## 📄 License
+## 📄 Lisensi
 
-This project is created for personal use as a digital wedding invitation.
+Proyek ini dibuat untuk penggunaan pribadi sebagai undangan pernikahan digital.
