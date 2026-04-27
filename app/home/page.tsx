@@ -318,26 +318,40 @@ export default function Home() {
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-6 pb-32 pt-12 animate-in fade-in duration-1000">
             <h2 className="mb-10 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Gallery Foto</h2>
-            <div className="grid grid-cols-2 gap-4 w-full max-w-2xl">
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.2
+                  }
+                }
+              }}
+              className="grid grid-cols-2 gap-4 w-full max-w-2xl"
+            >
               {galleryImages.map((src, i) => (
-                <div 
-                key={i} 
-                onClick={() => setSelectedImage(src)} 
-                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+                <motion.div 
+                  key={i} 
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  onClick={() => setSelectedImage(src)} 
+                  className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
                 >
-                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
-                <Image
-                  src={src}
-                  alt={`Gallery ${i + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 250px"
-                  className="object-cover hover:scale-110 transition-transform duration-500"
-                />
-                </div>
-                </div>
-
+                  <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                    <Image
+                      src={src}
+                      alt={`Gallery ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 250px"
+                      className="object-cover hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
             {/* Image Modal */}
             <AnimatePresence>
               {selectedImage && (
