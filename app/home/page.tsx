@@ -9,7 +9,10 @@ import {
   faCalendarAlt,
   faImages,
   faPlay,
-  faPause
+  faPause,
+  faHeart,
+  faLeaf,
+  faQuoteLeft
 } from "@fortawesome/free-solid-svg-icons";
 import { useAudio } from "../context/AudioContext";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,7 +35,7 @@ export default function Home() {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioContext = useAudio();
 
-  const tabOrder = ["home", "bride", "info", "gallery"];
+  const tabOrder = ["home", "bride", "story", "info", "gallery"];
   const currentIndex = tabOrder.indexOf(activeTab);
   const prevIndex = tabOrder.indexOf(prevTab);
   const direction = currentIndex > prevIndex ? 1 : -1;
@@ -70,6 +73,7 @@ export default function Home() {
   const navItems = [
     { id: "home", icon: faHome, title: "Home" },
     { id: "bride", icon: faRing, title: "Bride" },
+    { id: "story", icon: faHeart, title: "Story" },
     { id: "info", icon: faCalendarAlt, title: "Event" },
     { id: "gallery", icon: faImages, title: "Gallery" },
   ];
@@ -165,6 +169,101 @@ export default function Home() {
                 <h3 className="text-2xl sm:text-3xl font-serif italic text-[#ce953a]">Moh. Fais Jefri Albukhori, S.Tr., Ak</h3>
                 <p className="text-xs opacity-70 italic">Putra dari</p>
                 <p className="text-base sm:text-lg font-medium tracking-wide">Alm. Bpk. Jaelani & Ibu Suti’ah</p>
+              </div>
+            </div>
+          </section>
+        );
+      case "story":
+        return (
+          <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 animate-in slide-in-from-bottom-20 duration-1000 relative overflow-hidden">
+            {/* Background Decorative Elements */}
+            <div className="absolute top-10 left-10 opacity-10 rotate-12 animate-float">
+              <FontAwesomeIcon icon={faLeaf} className="text-6xl text-[#ce953a]" />
+            </div>
+            <div className="absolute bottom-40 right-10 opacity-10 -rotate-12 animate-float-delayed">
+              <FontAwesomeIcon icon={faLeaf} className="text-6xl text-[#ce953a]" />
+            </div>
+
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic relative"
+            >
+              Cerita Kami
+              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-[#ce953a] to-transparent"></div>
+            </motion.h2>
+
+            <div className="relative group w-full max-w-lg">
+              {/* Outer Decorative Border */}
+              <div className="absolute -inset-2 border border-[#ce953a]/20 rounded-[58px] pointer-events-none group-hover:border-[#ce953a]/40 transition-colors duration-500"></div>
+
+              <div className="glass p-8 sm:p-12 rounded-[50px] w-full space-y-8 relative overflow-hidden">
+                {/* Decorative Corner */}
+                <div className="absolute top-0 right-0 p-4 opacity-20">
+                  <FontAwesomeIcon icon={faQuoteLeft} className="text-3xl text-[#ce953a] rotate-180" />
+                </div>
+
+                <div className="relative">
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", delay: 0.3 }}
+                    className="relative w-16 h-16 mx-auto mb-8"
+                  >
+                    <div className="absolute inset-0 bg-[#ce953a]/20 blur-xl rounded-full animate-pulse"></div>
+                    <div className="relative flex items-center justify-center w-full h-full border border-[#ce953a]/40 rounded-full bg-black/20">
+                      <FontAwesomeIcon icon={faHeart} className="text-2xl text-[#ce953a] animate-beat" />
+                    </div>
+                  </motion.div>
+
+                  <div className="space-y-6 relative z-10">
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                      className="text-sm sm:text-lg leading-relaxed italic text-amber-50/90 font-light tracking-wide"
+                    >
+                      &quot;Dipertemukan dalam satu study yang sama. Dari rekan menjadi teman.&quot;
+                    </motion.p>
+
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "40%" }}
+                      transition={{ delay: 0.8, duration: 1 }}
+                      className="h-px bg-gradient-to-r from-transparent via-[#ce953a]/50 to-transparent mx-auto"
+                    ></motion.div>
+
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1 }}
+                      className="text-sm sm:text-lg leading-relaxed italic text-amber-50/90 font-light tracking-wide"
+                    >
+                      &quot;Demi hari kami yakin, bahwa rasa yang tumbuh bukan hanya suka sesama teman. Hari demi hari makin mantap dengan rasa yang ada.&quot;
+                    </motion.p>
+
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: "40%" }}
+                      transition={{ delay: 1.3, duration: 1 }}
+                      className="h-px bg-gradient-to-r from-transparent via-[#ce953a]/50 to-transparent mx-auto"
+                    ></motion.div>
+
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.5 }}
+                      className="text-sm sm:text-lg leading-relaxed italic text-white font-serif font-medium"
+                    >
+                      &quot;Hingga di hari kemarin, kami memantapkan hati untuk berlanjut ke jenjang pernikahan.&quot;
+                    </motion.p>
+                  </div>
+                </div>
+
+                {/* Bottom Decorative Corner */}
+                <div className="absolute bottom-0 left-0 p-4 opacity-20">
+                  <FontAwesomeIcon icon={faQuoteLeft} className="text-3xl text-[#ce953a]" />
+                </div>
               </div>
             </div>
           </section>
@@ -318,7 +417,7 @@ export default function Home() {
             <button
               key={item.id}
               onClick={() => handleTabChange(item.id)}
-              className={`flex flex-col items-center transition-all duration-300 cursor-pointer ${activeTab === item.id ? "scale-105 -translate-y-1.5 text-[#ce953a]" : "opacity-40 text-white hover:opacity-100"
+              className={`flex flex-col items-center transition-all duration-300 cursor-pointer ${activeTab === item.id ? "scale-105 -translate-y-1.5 text-white" : "opacity-40 text-white hover:opacity-100"
                 }`}
             >
               <div className="text-xl sm:text-2xl drop-shadow-md">
@@ -328,7 +427,7 @@ export default function Home() {
                 {item.title}
               </span>
               {activeTab === item.id && (
-                <div className="w-1.5 h-1.5 text-[#ce953a] rounded-full mt-1 shadow-sm animate-pulse" />
+                <div className="w-1.5 h-1.5 bg-white rounded-full mt-1 shadow-sm animate-pulse" />
               )}
             </button>
           ))}
