@@ -12,7 +12,9 @@ import {
   faPause,
   faHeart,
   faLeaf,
-  faQuoteLeft
+  faQuoteLeft,
+  faGift,
+  faCopy
 } from "@fortawesome/free-solid-svg-icons";
 import { useAudio } from "../context/AudioContext";
 import { motion, AnimatePresence } from "framer-motion";
@@ -35,7 +37,7 @@ export default function Home() {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const audioContext = useAudio();
 
-  const tabOrder = ["home", "bride", "story", "info", "gallery"];
+  const tabOrder = ["home", "bride", "story", "info", "gallery", "gift"];
   const currentIndex = tabOrder.indexOf(activeTab);
   const prevIndex = tabOrder.indexOf(prevTab);
   const direction = currentIndex > prevIndex ? 1 : -1;
@@ -76,6 +78,7 @@ export default function Home() {
     { id: "story", icon: faHeart, title: "Story" },
     { id: "info", icon: faCalendarAlt, title: "Event" },
     { id: "gallery", icon: faImages, title: "Gallery" },
+    { id: "gift", icon: faGift, title: "Gift" },
   ];
 
   const galleryImages = [
@@ -383,6 +386,64 @@ export default function Home() {
 
           </section>
         );
+      case "gift":
+        return (
+          <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-12 pb-32 animate-in slide-in-from-bottom-20 duration-1000">
+            <h2 className="mb-6 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Your Gift To Us</h2>
+            
+            <div className="glass p-6 sm:p-10 rounded-[50px] w-full max-w-lg space-y-8 text-center">
+              <p className="text-sm sm:text-base leading-relaxed text-amber-50/80 font-light">
+                Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. 
+                Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. 
+                Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin ...
+              </p>
+
+              <div className="grid gap-4">
+                {[
+                  { bank: "Mandiri", account: "1430034989325", name: "LUKMANUL KHOTIMAH", logo: "/assets/logo-mandiri.svg" },
+                  { bank: "BNI", account: "2035231900", name: "Lukmanul khotimah", logo: "/assets/logo-bni.svg" },
+                  { bank: "BRI", account: "653201031950532", name: "Lukmanul Khotimah", logo: "/assets/logo-bri.svg" },
+                  { bank: "DANA", account: "085696067526", name: "Moh. Fais Jefri Albukhori", logo: "/assets/logo-dana.svg" }
+                ].map((item, idx) => (
+                  <motion.div 
+                    key={idx}
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-5 text-left relative overflow-hidden group"
+                  >
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="relative w-20 h-10 sm:w-24 sm:h-12">
+                        <Image src={item.logo} alt={item.bank} fill className="object-contain object-left filter brightness-0 invert opacity-80" />
+                      </div>
+                      <button 
+                        onClick={() => {
+                          navigator.clipboard.writeText(item.account);
+                          alert("Nomor rekening disalin!");
+                        }}
+                        className="p-2 hover:bg-white/10 rounded-full transition-colors text-amber-50/50 hover:text-white"
+                      >
+                        <FontAwesomeIcon icon={faCopy} className="text-base sm:text-lg" />
+                      </button>
+                    </div>
+                    
+                    <div className="space-y-0.5">
+                      <p className="text-[10px] uppercase tracking-widest text-amber-50/40 font-bold">Atas Nama</p>
+                      <p className="text-sm sm:text-base font-medium text-amber-50 tracking-wide uppercase">{item.name}</p>
+                    </div>
+                    
+                    <div className="mt-3 pt-3 border-t border-white/5 space-y-0.5">
+                      <p className="text-[10px] uppercase tracking-widest text-amber-50/40 font-bold">Nomor Rekening / HP</p>
+                      <p className="text-xl sm:text-2xl font-serif text-[#ce953a] tracking-wider font-bold">{item.account}</p>
+                    </div>
+
+                    <div className="absolute -right-3 -bottom-3 opacity-5 group-hover:opacity-10 transition-opacity">
+                      <FontAwesomeIcon icon={faGift} className="text-6xl -rotate-12" />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
       default:
         return null;
     }
@@ -411,23 +472,23 @@ export default function Home() {
       </main>
 
       {/* Floating Bottom Navigation */}
-      <nav className="fixed bottom-7 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center px-4 w-full pointer-events-none">
-        <div className="nav-glass py-3 px-8 sm:px-11 rounded-full flex gap-7 sm:gap-10 items-center shadow-2xl border border-white/20 pointer-events-auto" style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', background: 'rgba(255,255,255,0.2)' }}>
+      <nav className="fixed bottom-7 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center px-4 w-full max-w-[500px] pointer-events-none">
+        <div className="nav-glass py-3 px-5 sm:px-10 rounded-full flex gap-4 sm:gap-8 items-center justify-around shadow-2xl border border-white/20 pointer-events-auto w-full" style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', background: 'rgba(255,255,255,0.2)' }}>
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleTabChange(item.id)}
-              className={`flex flex-col items-center transition-all duration-300 cursor-pointer ${activeTab === item.id ? "scale-105 -translate-y-1.5 text-white" : "opacity-40 text-white hover:opacity-100"
+              className={`flex flex-col items-center transition-all duration-300 cursor-pointer min-w-[40px] ${activeTab === item.id ? "scale-110 -translate-y-1 text-white" : "opacity-40 text-white hover:opacity-100"
                 }`}
             >
-              <div className="text-xl sm:text-2xl drop-shadow-md">
+              <div className="text-lg sm:text-2xl drop-shadow-md">
                 <FontAwesomeIcon icon={item.icon} />
               </div>
-              <span className={`text-[8px] sm:text-[10px] mt-1 font-bold tracking-widest uppercase transition-all duration-300 ${activeTab === item.id ? "opacity-100" : "opacity-0 h-0"}`}>
+              <span className={`text-[7px] sm:text-[10px] mt-1 font-bold tracking-widest uppercase transition-all duration-300 whitespace-nowrap ${activeTab === item.id ? "opacity-100 block" : "opacity-0 hidden"}`}>
                 {item.title}
               </span>
               {activeTab === item.id && (
-                <div className="w-1.5 h-1.5 bg-white rounded-full mt-1 shadow-sm animate-pulse" />
+                <div className="w-1 h-1 bg-white rounded-full mt-1 shadow-sm animate-pulse" />
               )}
             </button>
           ))}
