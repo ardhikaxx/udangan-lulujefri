@@ -318,39 +318,80 @@ export default function Home() {
         return (
           <section className="flex flex-col items-center justify-center min-h-screen px-6 pb-32 pt-12 animate-in fade-in duration-1000">
             <h2 className="mb-10 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Gallery Foto</h2>
+            
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={{
-                visible: {
-                  transition: {
-                    staggerChildren: 0.2
-                  }
-                }
+                visible: { transition: { staggerChildren: 0.1 } }
               }}
               className="grid grid-cols-2 gap-4 w-full max-w-2xl"
             >
-              {galleryImages.map((src, i) => (
-                <motion.div 
-                  key={i} 
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  onClick={() => setSelectedImage(src)} 
-                  className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
-                >
-                  <div className="relative w-full aspect-square overflow-hidden rounded-xl">
-                    <Image
-                      src={src}
-                      alt={`Gallery ${i + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 250px"
-                      className="object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                </motion.div>
-              ))}
+              {/* Foto 1 */}
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                onClick={() => setSelectedImage("/assets/gallery/foto1.jpeg")} 
+                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+              >
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                  <Image src="/assets/gallery/foto1.jpeg" alt="Gallery 1" fill sizes="(max-width: 768px) 50vw, 250px" className="object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+              </motion.div>
+
+              {/* Foto 2 */}
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                onClick={() => setSelectedImage("/assets/gallery/foto2.jpeg")} 
+                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+              >
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                  <Image src="/assets/gallery/foto2.jpeg" alt="Gallery 2" fill sizes="(max-width: 768px) 50vw, 250px" className="object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+              </motion.div>
+
+              {/* Foto 3 */}
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                onClick={() => setSelectedImage("/assets/gallery/foto3.jpeg")} 
+                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+              >
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                  <Image src="/assets/gallery/foto3.jpeg" alt="Gallery 3" fill sizes="(max-width: 768px) 50vw, 250px" className="object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+              </motion.div>
+
+              {/* Foto 4 */}
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                onClick={() => setSelectedImage("/assets/gallery/foto4.jpeg")} 
+                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+              >
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                  <Image src="/assets/gallery/foto4.jpeg" alt="Gallery 4" fill sizes="(max-width: 768px) 50vw, 250px" className="object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+              </motion.div>
+
+              {/* Foto 5 */}
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                onClick={() => setSelectedImage("/assets/gallery/foto5.jpeg")} 
+                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+              >
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                  <Image src="/assets/gallery/foto5.jpeg" alt="Gallery 5" fill sizes="(max-width: 768px) 50vw, 250px" className="object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+              </motion.div>
+
+              {/* Foto 6 */}
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                onClick={() => setSelectedImage("/assets/gallery/foto6.jpeg")} 
+                className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
+              >
+                <div className="relative w-full aspect-square overflow-hidden rounded-xl">
+                  <Image src="/assets/gallery/foto6.jpeg" alt="Gallery 6" fill sizes="(max-width: 768px) 50vw, 250px" className="object-cover hover:scale-110 transition-transform duration-500" />
+                </div>
+              </motion.div>
             </motion.div>
             {/* Image Modal */}
             <AnimatePresence>
