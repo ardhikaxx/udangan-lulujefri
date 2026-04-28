@@ -93,9 +93,21 @@ export default function Home() {
   if (!isMounted) return <div className="min-h-screen bg-[#002B19]" />;
 
   const variants = {
-    enter: (direction: number) => ({ x: direction > 0 ? 300 : -300, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (direction: number) => ({ x: direction < 0 ? 300 : -300, opacity: 0 })
+    enter: (direction: number) => ({
+      y: direction > 0 ? 30 : -30,
+      opacity: 0,
+      scale: 0.98
+    }),
+    center: {
+      y: 0,
+      opacity: 1,
+      scale: 1
+    },
+    exit: (direction: number) => ({
+      y: direction < 0 ? 30 : -30,
+      opacity: 0,
+      scale: 0.98
+    })
   };
 
   const renderContent = () => {
@@ -150,7 +162,7 @@ export default function Home() {
         );
       case "bride":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 animate-in slide-in-from-bottom-20 duration-1000">
+          <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24">
             <h2 className="mb-6 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic">Pasangan Pengantin</h2>
             <div className="glass p-4 sm:p-8 rounded-[50px] w-full max-w-lg space-y-8 sm:space-y-12">
               <div className="flex justify-center gap-8 mb-4">
@@ -178,7 +190,7 @@ export default function Home() {
         );
       case "story":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 animate-in slide-in-from-bottom-20 duration-1000 relative overflow-hidden">
+          <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 relative overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute top-10 left-10 opacity-10 rotate-12 animate-float">
               <FontAwesomeIcon icon={faLeaf} className="text-6xl text-[#ce953a]" />
@@ -273,7 +285,7 @@ export default function Home() {
         );
       case "info":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24 animate-in slide-in-from-bottom-20 duration-1000">
+          <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center pb-24">
             <h2 className="mb-8 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic">Waktu & Lokasi</h2>
             <div className="glass p-8 sm:p-10 rounded-[50px] w-full max-w-lg space-y-8">
               <div className="space-y-4">
@@ -316,7 +328,7 @@ export default function Home() {
         );
       case "gallery":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-6 pb-32 pt-12 animate-in fade-in duration-1000">
+          <section className="flex flex-col items-center justify-center min-h-screen px-6 pb-32 pt-12">
             <h2 className="mb-10 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Gallery Foto</h2>
             
             <motion.div 
@@ -329,7 +341,7 @@ export default function Home() {
             >
               {/* Foto 1 */}
               <motion.div 
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
                 onClick={() => setSelectedImage("/assets/gallery/foto1.jpeg")} 
                 className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
               >
@@ -340,7 +352,7 @@ export default function Home() {
 
               {/* Foto 2 */}
               <motion.div 
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
                 onClick={() => setSelectedImage("/assets/gallery/foto2.jpeg")} 
                 className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
               >
@@ -351,7 +363,7 @@ export default function Home() {
 
               {/* Foto 3 */}
               <motion.div 
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
                 onClick={() => setSelectedImage("/assets/gallery/foto3.jpeg")} 
                 className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
               >
@@ -362,7 +374,7 @@ export default function Home() {
 
               {/* Foto 4 */}
               <motion.div 
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
                 onClick={() => setSelectedImage("/assets/gallery/foto4.jpeg")} 
                 className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
               >
@@ -373,7 +385,7 @@ export default function Home() {
 
               {/* Foto 5 */}
               <motion.div 
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
                 onClick={() => setSelectedImage("/assets/gallery/foto5.jpeg")} 
                 className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
               >
@@ -384,7 +396,7 @@ export default function Home() {
 
               {/* Foto 6 */}
               <motion.div 
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}
                 onClick={() => setSelectedImage("/assets/gallery/foto6.jpeg")} 
                 className="cursor-pointer glass p-2 rounded-2xl border border-white/20 shadow-xl hover:rotate-2 transition-transform duration-300"
               >
@@ -443,7 +455,7 @@ export default function Home() {
         );
       case "gift":
         return (
-          <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-12 pb-32 animate-in slide-in-from-bottom-20 duration-1000">
+          <section className="flex flex-col items-center justify-center min-h-screen px-6 pt-12 pb-32">
             <h2 className="mb-6 text-4xl sm:text-5xl font-serif text-amber-50 drop-shadow-lg italic text-center">Your Gift To Us</h2>
             
             <div className="glass p-6 sm:p-10 rounded-[50px] w-full max-w-lg space-y-8 text-center">
@@ -519,7 +531,11 @@ export default function Home() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{
+              opacity: { duration: 0.8, ease: "easeInOut" },
+              y: { type: "spring", stiffness: 100, damping: 20 },
+              scale: { duration: 0.8, ease: "easeOut" }
+            }}
           >
             {renderContent()}
           </motion.div>
