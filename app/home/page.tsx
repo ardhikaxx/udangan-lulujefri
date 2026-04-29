@@ -238,7 +238,7 @@ export default function Home() {
                       transition={{ delay: 0.5 }}
                       className="text-sm sm:text-lg leading-relaxed italic text-amber-50/90 font-light tracking-wide"
                     >
-                      &quot;Dipertemukan dalam satu study yang sama. Dari rekan menjadi teman.&quot;
+                      &quot;Dipertemukan dalam satu study yang sama. Dari rekan menjadi teman hidup.&quot;
                     </motion.p>
 
                     <motion.div 
